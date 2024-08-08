@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">tasklist</string>
+    <string name="email_label">E-mail</string>
+    <string name="password_label">Senha</string>
+    <string name="forgot_password">Esqueci minha senha</string>
+    <string name="enter_label">Entrar</string>
+    <string name="screen_login_content_description">imagem da tela de login</string>
 </resources>
