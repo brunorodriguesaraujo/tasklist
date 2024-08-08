@@ -9,4 +9,5 @@
     <string name="create_account_button">Criar conta</string>
     <string name="send">Enviar</string>
     <string name="first_access">Primeiro acesso</string>
+    <string name="password_confirmation">Confirmar senha</string>
 </resources>
