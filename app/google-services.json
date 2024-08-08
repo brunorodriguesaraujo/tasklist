@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "188625299323",
+    "project_id": "tasklist-c17b2",
+    "storage_bucket": "tasklist-c17b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188625299323:android:89ad41b94442ff63153fde",
+        "android_client_info": {
+          "package_name": "br.com.brunorodrigues.tasklist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGkd9jE4vuzxerEIZVEGM-tlQAWLxVy-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
