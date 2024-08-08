@@ -10,4 +10,5 @@
     <string name="send">Enviar</string>
     <string name="first_access">Primeiro acesso</string>
     <string name="password_confirmation">Confirmar senha</string>
+    <string name="exit">Sair</string>
 </resources>

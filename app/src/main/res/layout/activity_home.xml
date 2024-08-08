@@ -11,7 +11,7 @@
         android:id="@+id/textViewSignOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sair"
+        android:text="@string/exit"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
