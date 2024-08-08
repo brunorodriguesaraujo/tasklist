@@ -5,4 +5,8 @@
     <string name="forgot_password">Esqueci minha senha</string>
     <string name="enter_label">Entrar</string>
     <string name="screen_login_content_description">imagem da tela de login</string>
+    <string name="created_account">Crie sua conta</string>
+    <string name="create_account_button">Criar conta</string>
+    <string name="send">Enviar</string>
+    <string name="first_access">Primeiro acesso</string>
 </resources>
