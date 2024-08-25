@@ -1,4 +1,4 @@
-package br.com.brunorodrigues.tasklist
+package br.com.brunorodrigues.tasklist.signin
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
+import br.com.brunorodrigues.tasklist.HomeActivity
+import br.com.brunorodrigues.tasklist.R
+import br.com.brunorodrigues.tasklist.signup.RegisterUserActivity
 import br.com.brunorodrigues.tasklist.databinding.ActivityLoginBinding
 import br.com.brunorodrigues.tasklist.extension.isEmailValid
 import com.google.firebase.auth.FirebaseAuth
