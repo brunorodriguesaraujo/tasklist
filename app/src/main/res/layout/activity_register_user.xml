@@ -34,14 +34,15 @@
                 android:padding="16dp"
                 android:src="@drawable/arrow_back_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="contentDescription"/>
 
             <TextView
                 android:id="@+id/textViewTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:text="@string/created_account"
+                android:text="@string/create_your_account"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"

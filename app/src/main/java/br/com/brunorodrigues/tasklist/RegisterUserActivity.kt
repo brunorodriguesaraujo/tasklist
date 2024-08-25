@@ -48,32 +48,32 @@ class RegisterUserActivity : AppCompatActivity() {
 
     private fun validateFields() = with(binding) {
         if (email.isBlank()) {
-            textInputLayoutEmail.error = "E-mail é obrigatório"
+            textInputLayoutEmail.error = getString(R.string.required_email)
             return
         }
 
         if (email.isEmailValid()) {
-            textInputLayoutEmail.error = "E-mail inválido"
+            textInputLayoutEmail.error = getString(R.string.invalid_email)
             return
         }
 
         if (password.isBlank()) {
-            textInputLayoutPassword.error = "Senha é obrigatória"
+            textInputLayoutPassword.error = getString(R.string.required_password)
             return
         }
 
         if (passwordConfirmation.isBlank()) {
-            textInputLayoutPasswordConfirmation.error = "Senha é obrigatória"
+            textInputLayoutPasswordConfirmation.error = getString(R.string.required_password)
             return
         }
 
         if (password.length < 6) {
-            textInputLayoutPassword.error = "A senha precisa ter no minímo 6 caracteres"
+            textInputLayoutPassword.error = getString(R.string.required_minimun_length_password)
             return
         }
 
         if (password != passwordConfirmation) {
-            textInputLayoutPasswordConfirmation.error = "Senhas diferentes"
+            textInputLayoutPasswordConfirmation.error = getString(R.string.different_password)
             return
         }
 
@@ -87,7 +87,7 @@ class RegisterUserActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(
                         baseContext,
-                        "Conta criada",
+                        getString(R.string.created_account),
                         Toast.LENGTH_SHORT,
                     ).show()
                     auth.signOut()
@@ -97,7 +97,7 @@ class RegisterUserActivity : AppCompatActivity() {
                     hideLoading()
                     Toast.makeText(
                         baseContext,
-                        "Falha na autenticação",
+                        getString(R.string.authentication_failed),
                         Toast.LENGTH_SHORT,
                     ).show()
                 }

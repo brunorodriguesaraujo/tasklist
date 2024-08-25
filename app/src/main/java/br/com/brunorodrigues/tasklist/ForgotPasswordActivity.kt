@@ -30,12 +30,12 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private fun validateField() {
         if (email.isBlank()) {
-            binding.textInputLayoutEmail.error = "E-mail obrigatório"
+            binding.textInputLayoutEmail.error = getString(R.string.required_email)
             return
         }
 
         if (email.isEmailValid()) {
-            binding.textInputLayoutEmail.error = "E-mail inválido"
+            binding.textInputLayoutEmail.error = getString(R.string.invalid_email)
             return
         }
 
@@ -49,14 +49,14 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(
                         this,
-                        "Acabamos de enviar o link de recuperação para o seu e-mail",
+                        getString(R.string.send_link_email),
                         Toast.LENGTH_SHORT
                     ).show()
                     hideLoading()
                 } else {
                     hideLoading()
                     Toast.makeText(
-                        baseContext, "Falha na autenticação",
+                        baseContext, getString(R.string.authentication_failed),
                         Toast.LENGTH_SHORT
                     ).show()
                 }

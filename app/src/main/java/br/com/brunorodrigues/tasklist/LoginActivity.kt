@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                     hideLoading()
                     Toast.makeText(
                         baseContext,
-                        "Falha na autenticação",
+                        getString(R.string.authentication_failed),
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
@@ -73,17 +73,17 @@ class LoginActivity : AppCompatActivity() {
 
     private fun validateFields() = with(binding) {
         if (email.isBlank()) {
-            textInputLayoutEmail.error = "E-mail obrigatório"
+            textInputLayoutEmail.error = getString(R.string.required_email)
             return
         }
 
         if (email.isEmailValid()) {
-            textInputLayoutEmail.error = "E-mail inválido"
+            textInputLayoutEmail.error = getString(R.string.invalid_email)
             return
         }
 
         if (password.isBlank()) {
-            textInputLayoutPassword.error = "Senha obrigatória"
+            textInputLayoutPassword.error = getString(R.string.required_password)
             return
         }
 

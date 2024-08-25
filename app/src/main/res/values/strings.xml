@@ -5,10 +5,18 @@
     <string name="forgot_password">Esqueci minha senha</string>
     <string name="enter_label">Entrar</string>
     <string name="screen_login_content_description">imagem da tela de login</string>
-    <string name="created_account">Crie sua conta</string>
+    <string name="create_your_account">Crie sua conta</string>
     <string name="create_account_button">Criar conta</string>
     <string name="send">Enviar</string>
     <string name="first_access">Primeiro acesso</string>
     <string name="password_confirmation">Confirmar senha</string>
     <string name="exit">Sair</string>
+    <string name="required_email">E-mail obrigatório</string>
+    <string name="invalid_email">E-mail inválido</string>
+    <string name="send_link_email">Acabamos de enviar o link de recuperação para o seu e-mail</string>
+    <string name="authentication_failed">Falha na autenticação</string>
+    <string name="created_account">Conta criada</string>
+    <string name="required_password">Senha é obrigatória</string>
+    <string name="required_minimun_length_password">A senha precisa ter no minímo 6 caracteres</string>
+    <string name="different_password">Senhas diferentes</string>
 </resources>
