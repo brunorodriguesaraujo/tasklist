@@ -18,7 +18,7 @@
             android:name=".signin.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".home.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".signin.LoginActivity"

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import br.com.brunorodrigues.tasklist.R
 import br.com.brunorodrigues.tasklist.databinding.ActivityForgotPasswordBinding
-import br.com.brunorodrigues.tasklist.extension.isEmailValid
+import br.com.brunorodrigues.tasklist.commons.extension.isEmailValid
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

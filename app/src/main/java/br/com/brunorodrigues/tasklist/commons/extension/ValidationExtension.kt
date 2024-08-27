@@ -1,4 +1,4 @@
-package br.com.brunorodrigues.tasklist.extension
+package br.com.brunorodrigues.tasklist.commons.extension
 
 import android.util.Patterns
 
