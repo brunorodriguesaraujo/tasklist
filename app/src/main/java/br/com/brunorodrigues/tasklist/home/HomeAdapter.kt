@@ -8,7 +8,10 @@ import br.com.brunorodrigues.tasklist.databinding.HeaderTaskBinding
 import br.com.brunorodrigues.tasklist.databinding.ItemTaskBinding
 import br.com.brunorodrigues.tasklist.model.TaskModel
 
-class HomeAdapter(private val list: List<Any> = emptyList()) :
+class HomeAdapter(
+    private val list: List<Any> = emptyList(),
+    private val listener: (task: TaskModel) -> Unit
+) :
     RecyclerView.Adapter<ViewHolder>() {
 
     companion object {
@@ -31,7 +34,8 @@ class HomeAdapter(private val list: List<Any> = emptyList()) :
                     LayoutInflater.from(parent.context),
                     parent,
                     false
-                )
+                ),
+                listener
             )
         }
 
@@ -57,12 +61,16 @@ class HomeAdapter(private val list: List<Any> = emptyList()) :
 
 }
 
-class ViewHolderTask(private val binding: ItemTaskBinding) :
+class ViewHolderTask(
+    private val binding: ItemTaskBinding,
+    private val listener: (task: TaskModel) -> Unit
+) :
     ViewHolder(binding.root) {
 
     fun bind(item: TaskModel) {
         binding.apply {
             tvTitle.text = item.title
+            root.setOnClickListener { listener(item) }
         }
     }
 }

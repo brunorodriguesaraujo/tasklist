@@ -27,4 +27,6 @@
     <string name="type_here">Digite aqui</string>
     <string name="create_task">Criar tarefa</string>
     <string name="save">Salvar</string>
+    <string name="fill_fields">Preencha os campos</string>
+    <string name="edit">Editar</string>
 </resources>
