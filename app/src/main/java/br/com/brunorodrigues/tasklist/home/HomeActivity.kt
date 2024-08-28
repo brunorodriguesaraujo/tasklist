@@ -10,6 +10,7 @@ import br.com.brunorodrigues.tasklist.R
 import br.com.brunorodrigues.tasklist.databinding.ActivityHomeBinding
 import br.com.brunorodrigues.tasklist.model.TaskModel
 import br.com.brunorodrigues.tasklist.signin.LoginActivity
+import br.com.brunorodrigues.tasklist.task.CreateTaskActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -49,6 +50,7 @@ class HomeActivity : AppCompatActivity() {
                 signOut()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -87,6 +89,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setListener() {
+        binding.fab.setOnClickListener {
+            startActivity(Intent(this, CreateTaskActivity::class.java))
+        }
     }
 
     private fun signOut() {

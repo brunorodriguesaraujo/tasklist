@@ -21,4 +21,10 @@
     <string name="different_password">Senhas diferentes</string>
     <string name="add_button">add_button</string>
     <string name="task_list_label">Lista de Tarefas</string>
+    <string name="question_task_label">O que deseja fazer?</string>
+    <string name="date_label">Data:</string>
+    <string name="date_not_defined">Data não definida</string>
+    <string name="type_here">Digite aqui</string>
+    <string name="create_task">Criar tarefa</string>
+    <string name="save">Salvar</string>
 </resources>
