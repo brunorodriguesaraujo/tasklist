@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.services)
     alias(libs.plugins.firebase.crashlytics)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -55,4 +56,5 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.firestore)
 }
