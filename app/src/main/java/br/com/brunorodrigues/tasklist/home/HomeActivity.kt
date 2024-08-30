@@ -35,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        showLoad()
         initFirebase()
         setToolbar()
         setListener()
@@ -71,6 +72,16 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    private fun showLoad() = with(binding) {
+        progressBar.isVisible = true
+        rvTask.isVisible = false
+    }
+
+    private fun hideLoad() = with(binding) {
+        progressBar.isVisible = false
+        rvTask.isVisible = true
+    }
+
     private fun getTasks() {
         list.clear()
         db.collection(Constants.DB_NAME)
@@ -91,9 +102,11 @@ class HomeActivity : AppCompatActivity() {
                 else {
                     renderEmpty(false)
                     initAdapter()
+                    hideLoad()
                 }
             }
             .addOnFailureListener { exception ->
+                hideLoad()
                 Log.w(Constants.TAG, "Error getting documents.", exception)
                 showToast(this, getString(R.string.authentication_failed))
             }
