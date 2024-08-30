@@ -7,5 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class TaskModel(
     val id: String = "",
     val title: String,
-    val date: String
+    val date: String,
+    val isChecked: Boolean = false
 ) : Parcelable

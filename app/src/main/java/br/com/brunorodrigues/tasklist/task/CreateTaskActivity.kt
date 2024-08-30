@@ -152,7 +152,7 @@ class CreateTaskActivity : AppCompatActivity() {
     }
 
     private fun updateTask() {
-        val date = if (selectedDate.isEmpty()) taskModel?.date else selectedDate
+        val date = selectedDate.ifEmpty { taskModel?.date }
         val map = mapOf(
             "title" to title,
             "date" to date

@@ -10,7 +10,8 @@ import br.com.brunorodrigues.tasklist.model.TaskModel
 
 class HomeAdapter(
     private val list: List<Any> = emptyList(),
-    private val listener: (task: TaskModel) -> Unit
+    private val checkListener: (task: TaskModel, isChecked: Boolean) -> Unit,
+    private val listener: (task: TaskModel) -> Unit,
 ) :
     RecyclerView.Adapter<ViewHolder>() {
 
@@ -35,6 +36,7 @@ class HomeAdapter(
                     parent,
                     false
                 ),
+                checkListener,
                 listener
             )
         }
@@ -63,6 +65,7 @@ class HomeAdapter(
 
 class ViewHolderTask(
     private val binding: ItemTaskBinding,
+    private val checkListener: (task: TaskModel, isChecked: Boolean) -> Unit,
     private val listener: (task: TaskModel) -> Unit
 ) :
     ViewHolder(binding.root) {
@@ -70,6 +73,13 @@ class ViewHolderTask(
     fun bind(item: TaskModel) {
         binding.apply {
             tvTitle.text = item.title
+            checkBoxTask.isChecked = item.isChecked
+            checkBoxTask.setOnCheckedChangeListener { _, isChecked ->
+                checkListener(
+                    item,
+                    isChecked
+                )
+            }
             root.setOnClickListener { listener(item) }
         }
     }

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import br.com.brunorodrigues.tasklist.R
 import br.com.brunorodrigues.tasklist.commons.extension.LOCALE_BRAZIL
 import br.com.brunorodrigues.tasklist.commons.extension.PATTERN
@@ -27,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
-    val list: MutableList<TaskModel> = mutableListOf()
+    private val list: MutableList<TaskModel> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,27 +80,56 @@ class HomeActivity : AppCompatActivity() {
                         TaskModel(
                             id = document.id,
                             title = document.data["title"].toString(),
-                            date = document.data["date"].toString()
+                            date = document.data["date"].toString(),
+                            document.data["isChecked"].toString().toBoolean()
                         )
                     )
                     Log.d(Constants.TAG, "${document.id} => ${document.data}")
                 }
-                initAdapter()
+                if (list.isEmpty()) renderEmpty(true)
+                else {
+                    renderEmpty(false)
+                    initAdapter()
+                }
             }
             .addOnFailureListener { exception ->
                 Log.w(Constants.TAG, "Error getting documents.", exception)
             }
     }
 
+    private fun renderEmpty(isVisible: Boolean) = with(binding) {
+        ivEmpty.isVisible = isVisible
+        rvTask.isVisible = !isVisible
+    }
+
     @SuppressLint("NotifyDataSetChanged")
     private fun initAdapter() {
-        val homeAdapter = HomeAdapter(prepareItems(list)) {
+        val homeAdapter = HomeAdapter(prepareItems(list), { task, isChecked ->
+            updateTask(task, isChecked)
+        }) {
             startActivity(Intent(this, CreateTaskActivity::class.java).apply {
                 putExtra(Constants.TASK, it)
             })
         }
         binding.rvTask.adapter = homeAdapter
         homeAdapter.notifyDataSetChanged()
+    }
+
+    private fun updateTask(taskModel: TaskModel, isChecked: Boolean) {
+        val map = mapOf(
+            "title" to taskModel.title,
+            "date" to taskModel.date,
+            "isChecked" to isChecked
+        )
+        db.collection(Constants.DB_NAME)
+            .document(taskModel.id)
+            .update(map)
+            .addOnSuccessListener { _ ->
+                Log.d(Constants.TAG, "update with SUCCESS")
+            }
+            .addOnFailureListener { e ->
+                Log.w(Constants.TAG, "Error update", e)
+            }
     }
 
     private fun prepareItems(list: List<TaskModel>): List<Any> {
