@@ -1,13 +1,13 @@
 package br.com.brunorodrigues.tasklist.signup
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
 import br.com.brunorodrigues.tasklist.R
-import br.com.brunorodrigues.tasklist.databinding.ActivityRegisterUserBinding
 import br.com.brunorodrigues.tasklist.commons.extension.isEmailValid
+import br.com.brunorodrigues.tasklist.commons.extension.showToast
+import br.com.brunorodrigues.tasklist.databinding.ActivityRegisterUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -86,21 +86,13 @@ class RegisterUserActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, passwordConfirmation)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(
-                        baseContext,
-                        getString(R.string.created_account),
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    showToast(this, getString(R.string.created_account))
                     auth.signOut()
                     finish()
                     hideLoading()
                 } else {
                     hideLoading()
-                    Toast.makeText(
-                        baseContext,
-                        getString(R.string.authentication_failed),
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    showToast(this, getString(R.string.authentication_failed))
                 }
             }
     }

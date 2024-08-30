@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.brunorodrigues.tasklist.R
 import br.com.brunorodrigues.tasklist.commons.extension.TIME_ZONE_AMERICA_SP
 import br.com.brunorodrigues.tasklist.commons.extension.formatterDateBrazilian
+import br.com.brunorodrigues.tasklist.commons.extension.showToast
 import br.com.brunorodrigues.tasklist.commons.utils.Constants
 import br.com.brunorodrigues.tasklist.databinding.ActivityCreateTaskBinding
 import br.com.brunorodrigues.tasklist.model.TaskModel
@@ -84,6 +84,7 @@ class CreateTaskActivity : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Log.w(Constants.TAG, "Error adding", e)
+                showToast(this, getString(R.string.authentication_failed))
             }
     }
 
@@ -103,11 +104,7 @@ class CreateTaskActivity : AppCompatActivity() {
                     if (taskModel != null) updateTask()
                     else saveTaskDatabase()
                 } else {
-                    Toast.makeText(
-                        baseContext,
-                        getString(R.string.fill_fields),
-                        Toast.LENGTH_SHORT,
-                    ).show()
+                    showToast(this@CreateTaskActivity, getString(R.string.fill_fields))
                 }
             }
         }
@@ -148,6 +145,7 @@ class CreateTaskActivity : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Log.w(Constants.TAG, "Error adding", e)
+                showToast(this, getString(R.string.authentication_failed))
             }
     }
 
@@ -166,6 +164,7 @@ class CreateTaskActivity : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Log.w(Constants.TAG, "Error update", e)
+                showToast(this, getString(R.string.authentication_failed))
             }
     }
 

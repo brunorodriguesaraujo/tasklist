@@ -1,12 +1,12 @@
 package br.com.brunorodrigues.tasklist.signin
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import br.com.brunorodrigues.tasklist.R
-import br.com.brunorodrigues.tasklist.databinding.ActivityForgotPasswordBinding
 import br.com.brunorodrigues.tasklist.commons.extension.isEmailValid
+import br.com.brunorodrigues.tasklist.commons.extension.showToast
+import br.com.brunorodrigues.tasklist.databinding.ActivityForgotPasswordBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -48,18 +48,11 @@ class ForgotPasswordActivity : AppCompatActivity() {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(
-                        this,
-                        getString(R.string.send_link_email),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showToast(this, getString(R.string.send_link_email))
                     hideLoading()
                 } else {
                     hideLoading()
-                    Toast.makeText(
-                        baseContext, getString(R.string.authentication_failed),
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showToast(this, getString(R.string.authentication_failed))
                 }
             }
 

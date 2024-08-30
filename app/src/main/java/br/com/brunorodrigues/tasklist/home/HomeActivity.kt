@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import br.com.brunorodrigues.tasklist.R
 import br.com.brunorodrigues.tasklist.commons.extension.LOCALE_BRAZIL
 import br.com.brunorodrigues.tasklist.commons.extension.PATTERN
+import br.com.brunorodrigues.tasklist.commons.extension.showToast
 import br.com.brunorodrigues.tasklist.commons.utils.Constants
 import br.com.brunorodrigues.tasklist.databinding.ActivityHomeBinding
 import br.com.brunorodrigues.tasklist.model.TaskModel
@@ -94,6 +95,7 @@ class HomeActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Log.w(Constants.TAG, "Error getting documents.", exception)
+                showToast(this, getString(R.string.authentication_failed))
             }
     }
 
